@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 196050854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.3420201, w: 0.9396927}
-  m_LocalPosition: {x: 0.037, y: -0.013, z: 0}
+  m_LocalPosition: {x: 0.127, y: -0.116, z: 0}
   m_LocalScale: {x: 0.9492487, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0ff3084a32c5c47a316f6698c4e31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPivot: {fileID: 627985956}
   isLeft: 0
   spriter: {fileID: 196050856}
   bodyRenderer: {fileID: 835396880}
@@ -463,7 +464,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.486111
+  orthographic size: 4.9027777
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -646,7 +647,7 @@ GameObject:
   m_Layer: 0
   m_Name: WeaponPivot
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -659,7 +660,7 @@ Transform:
   m_GameObject: {fileID: 627985955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: -0.29, z: 0}
+  m_LocalPosition: {x: 0.192, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1127,6 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0ff3084a32c5c47a316f6698c4e31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPivot: {fileID: 0}
   isLeft: 1
   spriter: {fileID: 1150323648}
   bodyRenderer: {fileID: 835396880}
@@ -1160,7 +1162,7 @@ Transform:
   m_GameObject: {fileID: 1382935809}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.005, y: 0.051, z: 0}
+  m_LocalPosition: {x: 0.005, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
