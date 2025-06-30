@@ -48,29 +48,39 @@ public class Hands : MonoBehaviour
         {
             if (isReverse)
             {
-                transform.DORotate(new Vector3(0, 0, 180), 0.15f, RotateMode.FastBeyond360)
+                transform.DORotate(new Vector3(0, 0, 0), 0.15f, RotateMode.FastBeyond360)
                     .SetEase(Ease.OutQuad)
                     .OnComplete(() =>
                     {
-                        transform.DORotate(OriginalRotation, 0.15f)
-                            .SetEase(Ease.InQuad)
+                        transform.DORotate(new Vector3(0, 0, 210), 0.15f, RotateMode.FastBeyond360)
+                            .SetEase(Ease.OutQuad)
                             .OnComplete(() =>
                             {
-                                transform.localPosition = rightPosReverse;
+                                transform.DORotate(OriginalRotation, 0.15f)
+                                    .SetEase(Ease.InQuad)
+                                    .OnComplete(() =>
+                                    {
+                                        transform.localPosition = rightPosReverse;
+                                    });
                             });
                     });
             }
             else
             {
-                transform.DORotate(new Vector3(0, 0, -120), 0.15f , RotateMode.FastBeyond360)
+                transform.DORotate(new Vector3(0, 0, 90), 0.15f , RotateMode.FastBeyond360)
                     .SetEase(Ease.OutQuad)
                     .OnComplete(() =>
                     {
-                        transform.DORotate(OriginalRotation, 0.15f)
-                            .SetEase(Ease.InQuad)
+                        transform.DORotate(new Vector3(0, 0, -120), 0.15f, RotateMode.FastBeyond360)
+                            .SetEase(Ease.OutQuad)
                             .OnComplete(() =>
                             {
-                                transform.localPosition = rightPos;
+                                transform.DORotate(OriginalRotation, 0.15f)
+                                    .SetEase(Ease.InQuad)
+                                    .OnComplete(() =>
+                                    {
+                                        transform.localPosition = rightPos;
+                                    });
                             });
                     });
             }
