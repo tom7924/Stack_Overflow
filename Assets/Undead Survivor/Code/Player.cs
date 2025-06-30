@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 
 public class Player : MonoBehaviour
@@ -15,6 +16,9 @@ public class Player : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldownDuration = 1f;
 
+    [Header("Attack")]
+    public Hands weaponAttack;
+
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -25,12 +29,17 @@ public class Player : MonoBehaviour
     private float dashRemainingTime;
     private float dashCooldownTimer;
     private Vector2 lastMoveDirection = Vector2.down;
-    
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        if (weaponAttack == null)
+        {
+            weaponAttack = GetComponentInChildren<Hands>();
+        }
     }
 
     void FixedUpdate()
@@ -81,6 +90,15 @@ public class Player : MonoBehaviour
             StartDash();   
         }
             
+    }
+
+    void OnAttack(InputValue value)
+    {
+        if (value.isPressed && weaponAttack != null)
+        {
+            weaponAttack.Attack();
+        }
+        
     }
 
     bool CanDash()
