@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [Header("Movement")]
     public Vector2 inputVec;
     public float speed;
+    private bool isBackstepping = false;
+    private bool facingRight = true;
 
     [Header("Dash")]
     public float dashSpeed = 20f;
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriter;
     Animator anim;
+    PlayerInput playerInput;
+    InputAction shiftAction;
 
     private bool isDashing = false;
     private Vector2 dashDirection;
@@ -40,6 +44,14 @@ public class Player : MonoBehaviour
         {
             weaponAttack = GetComponentInChildren<Hands>();
         }
+
+        facingRight = !spriter.flipX;
+
+        playerInput = GetComponent<PlayerInput>();
+        shiftAction = playerInput.actions["Shift"];
+
+        shiftAction.performed += OnShiftPerformed;
+        shiftAction.canceled += OnShiftCanceled;
     }
 
     void FixedUpdate()
@@ -87,9 +99,9 @@ public class Player : MonoBehaviour
         if (value.isPressed && CanDash())
         {
             Debug.Log("대시 시작!");
-            StartDash();   
+            StartDash();
         }
-            
+
     }
 
     void OnAttack(InputValue value)
@@ -98,7 +110,7 @@ public class Player : MonoBehaviour
         {
             weaponAttack.Attack();
         }
-        
+
     }
 
     bool CanDash()
@@ -132,13 +144,51 @@ public class Player : MonoBehaviour
         inputVec = value.Get<Vector2>();
     }
 
-    void LateUpdate()
+    void OnDestroy()
     {
-        anim.SetFloat("Speed", inputVec.magnitude);
-        if (inputVec.x != 0) {
-            spriter.flipX = inputVec.x < 0;
+        if (shiftAction != null)
+        {
+            shiftAction.performed -= OnShiftPerformed;
+            shiftAction.canceled -= OnShiftCanceled;
         }
     }
 
+    void OnShiftPerformed(InputAction.CallbackContext context)
+    {
+        isBackstepping = true;
+    }
+
+    void OnShiftCanceled(InputAction.CallbackContext context)
+    {
+        isBackstepping = false;
+
+        if (inputVec.x != 0)
+        {
+            UpdateFacingDirection();
+        }
+    }
+
+    void LateUpdate()
+    {
+        anim.SetFloat("Speed", inputVec.magnitude);
+        if (inputVec.x != 0 && !isBackstepping)
+        {
+            UpdateFacingDirection();
+        }
+    }
+
+    private void UpdateFacingDirection()
+    {
+        if (inputVec.x > 0)
+        {
+            facingRight = true;
+            spriter.flipX = false;
+        }
+        else if (inputVec.x < 0)
+        {
+            facingRight = false;
+            spriter.flipX = true;
+        }
+    }
 }
 
