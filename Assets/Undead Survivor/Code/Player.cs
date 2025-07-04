@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     [Header("Attack")]
     public Hands weaponAttack;
+    public float attackCooldownDuration = 1f;
 
 
     Rigidbody2D rigid;
@@ -34,6 +35,12 @@ public class Player : MonoBehaviour
     private float dashCooldownTimer;
     private Vector2 lastMoveDirection = Vector2.down;
 
+    private bool isAttacking = false;
+    private float attackRemainingTime;
+    private float attackCooldownTimer;
+
+
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -43,6 +50,10 @@ public class Player : MonoBehaviour
         if (weaponAttack == null)
         {
             weaponAttack = GetComponentInChildren<Hands>();
+            if (weaponAttack != null)
+            {
+                weaponAttack.OnAttackComplete += OnWeaponAttackComplete;
+            }
         }
 
         facingRight = !spriter.flipX;
@@ -91,6 +102,16 @@ public class Player : MonoBehaviour
         {
             dashCooldownTimer -= Time.fixedDeltaTime;
         }
+
+        if (isAttacking)
+        {
+            attackRemainingTime -= Time.fixedDeltaTime;
+        }
+
+        if (attackCooldownTimer > 0)
+        {
+            attackCooldownTimer -= Time.fixedDeltaTime;
+        }
     }
 
     void OnDash(InputValue value)
@@ -106,8 +127,9 @@ public class Player : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if (value.isPressed && weaponAttack != null)
+        if (value.isPressed && weaponAttack != null && CanAttack())
         {
+            StartAttack();
             weaponAttack.Attack();
         }
 
@@ -139,6 +161,28 @@ public class Player : MonoBehaviour
         dashCooldownTimer = dashCooldownDuration;
     }
 
+    bool CanAttack()
+    {
+        return !isAttacking && attackCooldownTimer <= 0;
+    }
+
+    void StartAttack()
+    {
+        isAttacking = true;
+        attackRemainingTime = weaponAttack.leftAttackDuration;
+    }
+
+    void EndAttack()
+    {
+        isAttacking = false;
+        attackCooldownTimer = attackCooldownDuration;   
+    }
+
+    void OnWeaponAttackComplete()
+    {
+        EndAttack();
+    }
+
     void OnMove(InputValue value)
     {
         inputVec = value.Get<Vector2>();
@@ -150,6 +194,11 @@ public class Player : MonoBehaviour
         {
             shiftAction.performed -= OnShiftPerformed;
             shiftAction.canceled -= OnShiftCanceled;
+        }
+
+        if (weaponAttack != null)
+        {
+            weaponAttack.OnAttackComplete -= OnWeaponAttackComplete;
         }
     }
 

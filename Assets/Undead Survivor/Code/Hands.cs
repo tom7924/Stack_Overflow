@@ -24,7 +24,11 @@ public class Hands : MonoBehaviour
     private Vector3 OriginalRotation;
     private Vector3 OriginalPivotRotation;
 
+    private float rightAttackReadyDuration;
+    public float rightAttackDuration = 0.15f;
+    public float leftAttackDuration = 0.20f;
 
+    public System.Action OnAttackComplete;
 
     void Awake()
     {
@@ -35,6 +39,8 @@ public class Hands : MonoBehaviour
             weaponPivot = transform.parent;
         }
         OriginalPivotRotation = weaponPivot.eulerAngles;
+
+        rightAttackReadyDuration = leftAttackDuration - rightAttackDuration;
     }
 
     void LateUpdate()
@@ -61,38 +67,35 @@ public class Hands : MonoBehaviour
         {
             if (isReverse)
             {
-                weaponPivot.DORotate(new Vector3(0, 0, 0), 0.20f, RotateMode.FastBeyond360)
-                    .SetEase(Ease.OutQuad)
-                    .OnComplete(() =>
-                    {
-                        weaponPivot.DORotate(new Vector3(0, 0, 240), 0.20f, RotateMode.FastBeyond360)
+                weaponPivot.DORotate(new Vector3(0, 0, 240), leftAttackDuration, RotateMode.FastBeyond360)
                             .SetEase(Ease.OutQuad)
                             .OnComplete(() =>
                             {
-                                weaponPivot.DORotate(OriginalPivotRotation, 0.20f, RotateMode.FastBeyond360)
+                                weaponPivot.DORotate(OriginalPivotRotation, leftAttackDuration, RotateMode.FastBeyond360)
                                     .SetEase(Ease.InQuad)
                                     .OnComplete(() =>
                                     {
                                         transform.localPosition = rightPosReverse;
+                                        OnAttackComplete?.Invoke();
                                     });
                             });
-                    });
             }
             else
             {
-                weaponPivot.DORotate(new Vector3(0, 0, 90), 0.15f, RotateMode.FastBeyond360)
+                weaponPivot.DORotate(new Vector3(0, 0, 90), rightAttackReadyDuration, RotateMode.FastBeyond360)
                     .SetEase(Ease.OutQuad)
                     .OnComplete(() =>
                     {
-                        weaponPivot.DORotate(new Vector3(0, 0, -120), 0.15f, RotateMode.FastBeyond360)
+                        weaponPivot.DORotate(new Vector3(0, 0, -120), rightAttackDuration, RotateMode.FastBeyond360)
                             .SetEase(Ease.OutQuad)
                             .OnComplete(() =>
                             {
-                                weaponPivot.DORotate(OriginalPivotRotation, 0.15f)
+                                weaponPivot.DORotate(OriginalPivotRotation, leftAttackDuration)
                                     .SetEase(Ease.InQuad)
                                     .OnComplete(() =>
                                     {
                                         transform.localPosition = rightPos;
+                                        OnAttackComplete?.Invoke();
                                     });
                             });
                     });

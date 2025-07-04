@@ -224,6 +224,8 @@ MonoBehaviour:
   isLeft: 0
   spriter: {fileID: 196050856}
   bodyRenderer: {fileID: 835396880}
+  rightAttackDuration: 0.15
+  leftAttackDuration: 0.2
 --- !u!70 &196050858
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -371,7 +373,7 @@ GameObject:
   - component: {fileID: 465768751}
   - component: {fileID: 465768756}
   m_Layer: 0
-  m_Name: Run 0
+  m_Name: Enemy_zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -656,7 +658,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.9027777
+  orthographic size: 5.486111
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1083,6 +1085,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldownDuration: 0
   weaponAttack: {fileID: 0}
+  attackCooldownDuration: 0
 --- !u!70 &835396878
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1324,6 +1327,8 @@ MonoBehaviour:
   isLeft: 1
   spriter: {fileID: 1150323648}
   bodyRenderer: {fileID: 835396880}
+  rightAttackDuration: 0.15
+  leftAttackDuration: 0.2
 --- !u!1 &1382935809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,7 +5715,7 @@ GameObject:
   - component: {fileID: 1908881178}
   - component: {fileID: 1908881183}
   m_Layer: 0
-  m_Name: Run 0 (1)
+  m_Name: Enemy_skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
