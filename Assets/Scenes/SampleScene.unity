@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 196050858}
   m_Layer: 0
   m_Name: Hand Right
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,8 +224,10 @@ MonoBehaviour:
   isLeft: 0
   spriter: {fileID: 196050856}
   bodyRenderer: {fileID: 835396880}
+  damage: 5
   rightAttackDuration: 0.15
   leftAttackDuration: 0.2
+  weaponCollider: {fileID: 196050858}
 --- !u!70 &196050858
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -256,7 +258,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -550,6 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   target: {fileID: 835396879}
+  health: 20
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,8 +1330,10 @@ MonoBehaviour:
   isLeft: 1
   spriter: {fileID: 1150323648}
   bodyRenderer: {fileID: 835396880}
+  damage: 0
   rightAttackDuration: 0.15
   leftAttackDuration: 0.2
+  weaponCollider: {fileID: 0}
 --- !u!1 &1382935809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5892,6 +5897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2.5
   target: {fileID: 835396879}
+  health: 20
 --- !u!1 &1915928236
 GameObject:
   m_ObjectHideFlags: 0

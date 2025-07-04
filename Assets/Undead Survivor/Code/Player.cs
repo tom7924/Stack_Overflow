@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
     void EndAttack()
     {
         isAttacking = false;
-        attackCooldownTimer = attackCooldownDuration;   
+        attackCooldownTimer = attackCooldownDuration;
     }
 
     void OnWeaponAttackComplete()

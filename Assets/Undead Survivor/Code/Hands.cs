@@ -10,6 +10,7 @@ public class Hands : MonoBehaviour
     public bool isLeft;
     public SpriteRenderer spriter;
     public SpriteRenderer bodyRenderer;
+    public float damage;
     SpriteRenderer player;
 
     Vector3 rightPos = new Vector3(0.127f, -0.116f, 0);
@@ -30,6 +31,10 @@ public class Hands : MonoBehaviour
 
     public System.Action OnAttackComplete;
 
+    public Collider2D weaponCollider;
+
+    private HashSet<GameObject> hitTargets = new HashSet<GameObject>();
+
     void Awake()
     {
         player = bodyRenderer;
@@ -41,6 +46,11 @@ public class Hands : MonoBehaviour
         OriginalPivotRotation = weaponPivot.eulerAngles;
 
         rightAttackReadyDuration = leftAttackDuration - rightAttackDuration;
+
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = false;
+        }
     }
 
     void LateUpdate()
@@ -62,6 +72,14 @@ public class Hands : MonoBehaviour
 
     public void Attack()
     {
+
+        hitTargets.Clear();
+
+        if (weaponCollider != null)
+        {
+            weaponCollider.enabled = true;
+        }
+
         bool isReverse = player.flipX;
         if (!isLeft)
         {
@@ -77,6 +95,7 @@ public class Hands : MonoBehaviour
                                     {
                                         transform.localPosition = rightPosReverse;
                                         OnAttackComplete?.Invoke();
+                                        weaponCollider.enabled = false;
                                     });
                             });
             }
@@ -96,10 +115,28 @@ public class Hands : MonoBehaviour
                                     {
                                         transform.localPosition = rightPos;
                                         OnAttackComplete?.Invoke();
+                                        weaponCollider.enabled = false;
                                     });
                             });
                     });
             }
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        IDamageable damageable = collision.GetComponent<IDamageable>();
+        if (damageable == null)
+            return;
+
+        GameObject target = collision.gameObject;
+
+        if (hitTargets.Contains(target))
+        {
+            return;
+        }
+
+        hitTargets.Add(target);
+        damageable.TakeDamage(damage);
     }
 }
