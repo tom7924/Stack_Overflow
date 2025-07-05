@@ -16,10 +16,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
+    Animator anim;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -47,13 +49,24 @@ public class Enemy : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         health -= damage;
-        
         if (health <= 0)
         {
+            isLive = false;
+            rigid.simulated = false;
+            anim.SetBool("Dead", true);
+
             Dead();
+        }       
+        else
+        {
+            anim.SetTrigger("Hit");
         }
+
+        
+        
     }
 
+   
     void Dead()
     {
         gameObject.SetActive(false);
