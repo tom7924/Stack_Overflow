@@ -221,13 +221,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPivot: {fileID: 627985956}
+  shieldPivot: {fileID: 0}
   isLeft: 0
   spriter: {fileID: 196050856}
   bodyRenderer: {fileID: 835396880}
   damage: 5
+  isGuard: 0
   rightAttackDuration: 0.15
   leftAttackDuration: 0.2
+  guardDuration: 0.5
   weaponCollider: {fileID: 196050858}
+  shieldCollider: {fileID: 0}
 --- !u!70 &196050858
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -554,6 +558,38 @@ MonoBehaviour:
   target: {fileID: 835396879}
   health: 20
   knockbackrange: 5
+--- !u!1 &483055543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 483055544}
+  m_Layer: 0
+  m_Name: ShieldPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &483055544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483055543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1150323647}
+  m_Father: {fileID: 835396881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +698,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.486111
+  orthographic size: 7.013889
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1135,6 +1171,8 @@ MonoBehaviour:
   dashCooldownDuration: 0
   weaponAttack: {fileID: 0}
   attackCooldownDuration: 0
+  shieldGuard: {fileID: 0}
+  guardCooldownDuration: 3
 --- !u!70 &835396878
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1269,7 +1307,7 @@ Transform:
   m_Children:
   - {fileID: 756147222}
   - {fileID: 627985956}
-  - {fileID: 1150323647}
+  - {fileID: 483055544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1150323646
@@ -1283,6 +1321,7 @@ GameObject:
   - component: {fileID: 1150323647}
   - component: {fileID: 1150323648}
   - component: {fileID: 1150323649}
+  - component: {fileID: 1150323650}
   m_Layer: 0
   m_Name: Hand Left
   m_TagString: Untagged
@@ -1298,12 +1337,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150323646}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.15, y: -0.3, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 835396881}
+  m_Father: {fileID: 483055544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1150323648
 SpriteRenderer:
@@ -1372,14 +1411,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0ff3084a32c5c47a316f6698c4e31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPivot: {fileID: 0}
+  weaponPivot: {fileID: 483055544}
+  shieldPivot: {fileID: 0}
   isLeft: 1
   spriter: {fileID: 1150323648}
   bodyRenderer: {fileID: 835396880}
   damage: 0
+  isGuard: 0
   rightAttackDuration: 0.15
   leftAttackDuration: 0.2
-  weaponCollider: {fileID: 0}
+  guardDuration: 0.5
+  weaponCollider: {fileID: 1150323650}
+  shieldCollider: {fileID: 1150323650}
+--- !u!70 &1150323650
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150323646}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.4375, y: 0.4375}
+  m_Direction: 1
 --- !u!1 &1382935809
 GameObject:
   m_ObjectHideFlags: 0

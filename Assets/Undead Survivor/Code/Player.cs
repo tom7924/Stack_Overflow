@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     public Hands weaponAttack;
     public float attackCooldownDuration = 1f;
 
+    [Header("Guard")]
+    public Hands shieldGuard;
+    public float guardCooldownDuration = 3f;
+
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -39,6 +43,10 @@ public class Player : MonoBehaviour
     private float attackRemainingTime;
     private float attackCooldownTimer;
 
+    private bool isGuard = false;
+    private float guardRemainingTime;
+    private float guardCooldownTimer;
+
 
 
     void Awake()
@@ -46,15 +54,22 @@ public class Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        Hands[] allHands = GetComponentsInChildren<Hands>();
 
-        if (weaponAttack == null)
+        foreach (var h in allHands)
         {
-            weaponAttack = GetComponentInChildren<Hands>();
-            if (weaponAttack != null)
-            {
-                weaponAttack.OnAttackComplete += OnWeaponAttackComplete;
-            }
+            if (h.isLeft)
+                shieldGuard = h;
+            else
+                weaponAttack = h;
         }
+
+        if (weaponAttack != null)
+            weaponAttack.OnAttackComplete += OnWeaponAttackComplete;
+
+        if (shieldGuard != null)    
+            shieldGuard.OnGuardComplete  += OnShieldGuardComplete;
+
 
         facingRight = !spriter.flipX;
 
@@ -112,14 +127,24 @@ public class Player : MonoBehaviour
         {
             attackCooldownTimer -= Time.fixedDeltaTime;
         }
+
+        if (isGuard)
+        {
+            guardRemainingTime -= Time.fixedDeltaTime;
+        }
+
+        if (guardCooldownTimer > 0)
+        {
+            guardCooldownTimer -= Time.fixedDeltaTime;
+        }
     }
 
     void OnDash(InputValue value)
     {
-        Debug.Log("OnDash È£ÃâµÊ! isPressed: " + value.isPressed);
+        Debug.Log("OnDash È£ï¿½ï¿½ï¿½! isPressed: " + value.isPressed);
         if (value.isPressed && CanDash())
         {
-            Debug.Log("´ë½Ã ½ÃÀÛ!");
+            Debug.Log("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!");
             StartDash();
         }
 
@@ -129,10 +154,21 @@ public class Player : MonoBehaviour
     {
         if (value.isPressed && weaponAttack != null && CanAttack())
         {
+            Debug.Log($"Onattack isPressed = {value.isPressed}");
             StartAttack();
             weaponAttack.Attack();
         }
 
+    }
+
+    void OnGuard(InputValue value)
+    {
+        if (value.isPressed && shieldGuard != null && CanGuard())
+        {
+            Debug.Log($"Onguard isPressed = {value.isPressed}");
+            StartGuard();
+            shieldGuard.Guard();
+        }
     }
 
     bool CanDash()
@@ -176,6 +212,32 @@ public class Player : MonoBehaviour
     {
         isAttacking = false;
         attackCooldownTimer = attackCooldownDuration;
+    }
+
+    
+
+    bool CanGuard()
+    {
+        return !isGuard && guardCooldownTimer <= 0;
+    }
+
+    void StartGuard()
+    {
+        isGuard = true;
+        guardRemainingTime = shieldGuard.leftAttackDuration;
+    }
+
+    void EndGuard()
+    {
+        Debug.Log(">> EndGuard() ì‹¤í–‰, isGuardâ†’false, cooldown ì‹œìž‘");
+        isGuard = false;
+        guardCooldownTimer = guardCooldownDuration;
+    }
+
+    void OnShieldGuardComplete()
+    {
+        Debug.Log(">> OnShieldGuardComplete í˜¸ì¶œ!");
+        EndGuard();
     }
 
     void OnWeaponAttackComplete()
