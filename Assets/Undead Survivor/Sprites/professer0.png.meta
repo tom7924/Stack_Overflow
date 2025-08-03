@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: a66a36fe78a7bda43ba4a1d1f53c2577
+guid: 97a827f5d5519f54ab3687cf05a987b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1391448698025920940
-    second: player0_1_0
+      213: -7829050642263198324
+    second: professer0_0
   - first:
-      213: 6918831599974295360
-    second: player0_1_1
+      213: 8469806037489146582
+    second: professer0_1
   - first:
-      213: 3551545426623535081
-    second: player0_1_2
+      213: 5337246362533141513
+    second: professer0_2
   - first:
-      213: 9189985960734844572
-    second: player0_1_3
+      213: 1339094644794451822
+    second: professer0_3
   - first:
-      213: -2545957361775579474
-    second: player0_1_4
+      213: -1132670332523087545
+    second: professer0_4
   - first:
-      213: -1828005236592599913
-    second: player0_1_5
+      213: 7814855380676594052
+    second: professer0_5
   - first:
-      213: 5788963735482957355
-    second: player0_1_6
+      213: 5422262714006321947
+    second: professer0_6
   - first:
-      213: 7108259077426904243
-    second: player0_1_7
+      213: -834542044431247382
+    second: professer0_7
   - first:
-      213: -3913533372891776014
-    second: player0_1_8
+      213: -4381616264209555092
+    second: professer0_8
   - first:
-      213: 4347930262472137782
-    second: player0_1_9
+      213: 4837997009399441481
+    second: professer0_9
   - first:
-      213: 6172186134602694442
-    second: player0_1_10
+      213: 2245134426008604068
+    second: professer0_10
   - first:
-      213: -2421298310242694755
-    second: player0_1_11
+      213: -6094480918391939681
+    second: professer0_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,9 +84,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -146,13 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player0_1_0
+      name: professer0_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 120
-        width: 25
-        height: 39
+        x: 1
+        y: 136
+        width: 24
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca9c309f73b6f4310800000000000000
-      internalID: 1391448698025920940
+      spriteID: c85bb53cbef995390800000000000000
+      internalID: -7829050642263198324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player0_1_1
+      name: professer0_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 82
-        width: 25
-        height: 38
+        x: 28
+        y: 136
+        width: 24
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0472731cea0a40060800000000000000
-      internalID: 6918831599974295360
+      spriteID: 6dadff457bbca8570800000000000000
+      internalID: 8469806037489146582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player0_1_2
+      name: professer0_2
       rect:
         serializedVersion: 2
-        x: 27
-        y: 120
-        width: 25
-        height: 38
+        x: 28
+        y: 93
+        width: 24
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,196 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e71f85afbf994130800000000000000
-      internalID: 3551545426623535081
+      spriteID: 90c988de945b11a40800000000000000
+      internalID: 5337246362533141513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player0_1_3
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 80
-        width: 25
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c966d686a83698f70800000000000000
-      internalID: 9189985960734844572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_4
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 120
-        width: 28
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eae631eb441faacd0800000000000000
-      internalID: -2545957361775579474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_5
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 41
-        width: 25
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79c18592cee91a6e0800000000000000
-      internalID: -1828005236592599913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_6
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 41
-        width: 25
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2e741f98d7865050800000000000000
-      internalID: 5788963735482957355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_7
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 80
-        width: 25
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bcf97148fb95a260800000000000000
-      internalID: 7108259077426904243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_8
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 40
-        width: 25
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2fb3624d12650b9c0800000000000000
-      internalID: -3913533372891776014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_9
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1
-        width: 25
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63c92d29983f65c30800000000000000
-      internalID: 4347930262472137782
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_10
-      rect:
-        serializedVersion: 2
-        x: 26
-        y: 5
-        width: 26
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2fb598769208a550800000000000000
-      internalID: 6172186134602694442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player0_1_11
+      name: professer0_3
       rect:
         serializedVersion: 2
         x: 53
-        y: 5
-        width: 23
-        height: 31
+        y: 93
+        width: 24
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,8 +227,184 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d990bb2f302d56ed0800000000000000
-      internalID: -2421298310242694755
+      spriteID: e67e99f0c7b659210800000000000000
+      internalID: 1339094644794451822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_4
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 136
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749765e6552f740f0800000000000000
+      internalID: -1132670332523087545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 94
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48947485091f37c60800000000000000
+      internalID: 7814855380676594052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 44
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b3133c53fbf3b40800000000000000
+      internalID: 5422262714006321947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_7
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae71c83ae6c1b64f0800000000000000
+      internalID: -834542044431247382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 45
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6127b5f83f5133c0800000000000000
+      internalID: -4381616264209555092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_9
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 45
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948e7a1b5a4042340800000000000000
+      internalID: 4837997009399441481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 27
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ad4e3f7dd1582f10800000000000000
+      internalID: 2245134426008604068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: professer0_11
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 1
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d1ad805ed0c6ba0800000000000000
+      internalID: -6094480918391939681
       vertices: []
       indices: 
       edges: []
@@ -423,18 +423,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player0_1_0: 1391448698025920940
-      player0_1_1: 6918831599974295360
-      player0_1_10: 6172186134602694442
-      player0_1_11: -2421298310242694755
-      player0_1_2: 3551545426623535081
-      player0_1_3: 9189985960734844572
-      player0_1_4: -2545957361775579474
-      player0_1_5: -1828005236592599913
-      player0_1_6: 5788963735482957355
-      player0_1_7: 7108259077426904243
-      player0_1_8: -3913533372891776014
-      player0_1_9: 4347930262472137782
+      professer0_0: -7829050642263198324
+      professer0_1: 8469806037489146582
+      professer0_10: 2245134426008604068
+      professer0_11: -6094480918391939681
+      professer0_2: 5337246362533141513
+      professer0_3: 1339094644794451822
+      professer0_4: -1132670332523087545
+      professer0_5: 7814855380676594052
+      professer0_6: 5422262714006321947
+      professer0_7: -834542044431247382
+      professer0_8: -4381616264209555092
+      professer0_9: 4837997009399441481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
